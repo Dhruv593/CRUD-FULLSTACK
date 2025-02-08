@@ -3,6 +3,10 @@ import axios from 'axios';
 
 const apiUrl = process.env.REACT_APP_API_BASE_URL; // Your Express backend endpoint
 
+if (!apiUrl) {
+  console.error("API URL is not set. Check your .env file!");
+}
+
 // Get all users
 export const getUsers = async () => {
   try {
@@ -17,7 +21,14 @@ export const getUsers = async () => {
 
 // Create a new user
 export const createUser = async (data) => {
-  return await axios.post(apiUrl, data);
+  try {
+    const response = await axios.post(apiUrl, data);
+    console.log("User Created:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error creating user:", error);
+    throw error;
+  }
 };
 
 // Update an existing user
