@@ -1,7 +1,7 @@
 // src/api/userApi.js
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:5000/users'; // Your Express backend endpoint
+const apiUrl = process.env.REACT_APP_API_BASE_URL; // Your Express backend endpoint
 
 // Get all users
 export const getUsers = async () => {
