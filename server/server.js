@@ -17,6 +17,4 @@ app.use(bodyParser.json());
 // Mount the user routes at /users
 app.use('/users', userRoutes);
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+module.exports = app;
