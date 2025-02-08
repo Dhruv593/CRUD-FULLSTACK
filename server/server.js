@@ -17,4 +17,8 @@ app.use(bodyParser.json());
 // Mount the user routes at /users
 app.use('/users', userRoutes);
 
+app.get('/', (req, res) => {
+  res.send('🚀 Backend is Running on Vercel!');
+});
+
 module.exports = app;
