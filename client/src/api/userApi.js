@@ -10,11 +10,11 @@ if (!apiUrl) {
 // Get all users
 export const getUsers = async () => {
   try {
-    const response = await axios.get(apiUrl);
-    console.log("API Response:", response.data); // Debugging
-    return response.data.users || []; // Ensure users array is returned
+    const response = await axios.get(`${apiUrl}/users`);
+    console.log("API Response:", response.data);
+    return response.data.users || [];
   } catch (error) {
-    console.error("Error fetching users:", error);
+    console.error("❌ Error fetching users:", error);
     return [];
   }
 };
