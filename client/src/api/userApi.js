@@ -5,8 +5,14 @@ const apiUrl = process.env.REACT_APP_API_BASE_URL; // Your Express backend endpo
 
 // Get all users
 export const getUsers = async () => {
-  const response = await axios.get(apiUrl);
-  return response.data.users; // Ensure you return only the users array
+  try {
+    const response = await axios.get(apiUrl);
+    console.log("API Response:", response.data); // Debugging
+    return response.data.users || []; // Ensure users array is returned
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return [];
+  }
 };
 
 // Create a new user
