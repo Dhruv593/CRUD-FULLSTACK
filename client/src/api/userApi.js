@@ -5,7 +5,8 @@ const apiUrl = process.env.REACT_APP_API_BASE_URL; // Your Express backend endpo
 
 // Get all users
 export const getUsers = async () => {
-  return await axios.get(apiUrl);
+  const response = await axios.get(apiUrl);
+  return response.data.users; // Ensure you return only the users array
 };
 
 // Create a new user
