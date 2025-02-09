@@ -11,7 +11,12 @@ const port = process.env.PORT || 5000;
 const userRoutes = require('./routes/userRoute');
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL, // Replace with your frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 
 // Mount the user routes at /users
