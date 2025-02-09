@@ -12,7 +12,7 @@ export const getUsers = async () => {
   try {
     const response = await axios.get(`${apiUrl}/users`);
     console.log("API Response:", response.data);
-    return response.data.users || [];
+    return response.data;
   } catch (error) {
     console.error("❌ Error fetching users:", error);
     return [];
@@ -22,7 +22,7 @@ export const getUsers = async () => {
 // Create a new user
 export const createUser = async (data) => {
   try {
-    const response = await axios.post(apiUrl, data);
+    const response = await axios.post(`${apiUrl}/users`, data);
     console.log("User Created:", response.data);
     return response.data;
   } catch (error) {
@@ -33,10 +33,10 @@ export const createUser = async (data) => {
 
 // Update an existing user
 export const updateUser = async (id, data) => {
-  return await axios.put(`${apiUrl}/${id}`, data);
+  return await axios.put(`${apiUrl}/users/${id}`, data);
 };
 
 // Delete a user
 export const deleteUser = async (id) => {
-  return await axios.delete(`${apiUrl}/${id}`);
+  return await axios.delete(`${apiUrl}/users/${id}`);
 };
