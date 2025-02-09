@@ -87,8 +87,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">
-        MERN CRUD with XAMPP MySQL
+      <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+        CRUD <br /><p className="text-[20px]">(MySQL, React and Express)</p>
       </h1>
       <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
         <UserForm
