@@ -1,7 +1,7 @@
 // src/api/userApi.js
 import axios from 'axios';
 
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL ;
 
 if (!apiUrl) {
   console.error("API URL is not set. Check your .env file!");
